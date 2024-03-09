@@ -24,3 +24,13 @@ newImage = np.concatenate((img_opencv, img_matplotlib), axis=1)
 cv.imshow('concatenated Images', newImage)
 cv.waitKey()
 cv.destroyAllWindows()
+
+'''
+cv2.split() is a time consuming operation. consider using NumPy indexing:
+'''
+b = img_opencv[:, :, 0]
+g = img_opencv[:, :, 1]
+r = img_opencv[:, :, 2]
+img_matplotlib = img_opencv[:, :, ::-1]
+
+

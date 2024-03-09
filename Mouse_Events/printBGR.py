@@ -19,10 +19,6 @@ def printBGR(event, x, y, flags, params):
         print(f'Red: {px[2]}\nGreen: {px[1]}\nBlue: {px[0]}')
 
         # display on the image the BGR value
-
-        # a small circle to display the cursor click
-        cv.circle(img, (x,y), 3, (0, 0, 255), -1)
-      
         font = cv.FONT_HERSHEY_SIMPLEX
         strXY = '(' + str(px[0]) + ',' + str(px[1]) + ',' + str(px[2]) + ')'
         cv.putText(img, strXY, (x+5, y-5), font, 0.5, (0, 0, 255))

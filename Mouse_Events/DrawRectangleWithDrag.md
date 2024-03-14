@@ -1,6 +1,6 @@
 # Drawing Rectangle with Mouse Drag
 
-Rectangle can drawn using two points i.e. upper-left and bottom right. We'll record the upper-left coordinate as the EVENT_LBUTTONDOWN and the bottom-right coordinate as EVENT_LBUTTONUP.
+Rectangle can drawn using two points i.e. upper-left and bottom right. We'll record the upper-left coordinate as **EVENT_LBUTTONDOWN** and the bottom-right coordinate as **EVENT_LBUTTONUP**.
 
 ```python
 import cv2 as cv

@@ -36,6 +36,7 @@ while True:
 cv.destroyAllWindows()
 ```
 
-- using -1 as thickness to fill the rectangle
-- displaying the window atleast 10 milliseconds then waiting for the esc key to close the window
-- using ix, iy and drawing as global variables so that we can replace the values globally
+- Using -1 as thickness to fill the rectangle
+- Displaying the window atleast 10 milliseconds then waiting for the esc key to close the window
+- Using ix, iy and drawing as global variables so that we can replace the values globally
+- Not a single Rectangle is made, instead multiple rectangles are being made continuously as the coordinates change when the mouse drags. So make sure to move mouse linearly instead of curve. Else some undefined shape will be made.

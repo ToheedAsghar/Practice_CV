@@ -75,7 +75,7 @@ cv.waitKey()
 - scale value is set to 1.0 in order to untouch the original dimensions of the image
 - image.shape returns a list of length 3, Fist is the height, second is the width and third is the number of channels. [:2] is used to extract only the first two elements (height and width) from the shape tuple.
 
-  ## Resize
+## Resize
   
 ```python
 import cv2 as cv

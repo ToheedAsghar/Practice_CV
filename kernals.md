@@ -36,6 +36,11 @@ cv2.destroyAllWindows()
 
 ## Kernals
 
+```python
+meanBlur = np.array([[1, 1, 1], [1, 1, 1], [1, 1, 1]])
+GaussianBlur = np.array([[0.0625, 0.125, 0.0625], [0.125, 0.250, 0.125], [0.0625, 0.125, 0.0625]])
+```
+
 ## Inbuilt-Blur Functions
 
 **GaussianBlur**

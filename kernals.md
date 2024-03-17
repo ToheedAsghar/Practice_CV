@@ -43,10 +43,10 @@ kernel = np.ones((3, 3), np.float32) / 9
 
 blurred_img = convolution(img, kernel)
 
-cv2.imshow('Original Image', img)
-cv2.imshow('Blurred Image', blurred_img)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+f, plots = plt.subplots(1, 2)
+plots[0].imshow(img, cmap='gray')
+plots[1].imshow(blurred_img, cmap='gray')
+plt.show()
 ```
 
 ## Explanation

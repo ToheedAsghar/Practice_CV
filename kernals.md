@@ -22,21 +22,26 @@ import cv2
 import numpy as np
 import matplotlib.pyplot as plt
 
-def convolution(img, kernel):
-    (ih, iw) = img.shape[:2]
-    (kh, kw) = kernel.shape[:2]
-    
-    pad = (kw - 1) // 2
-    img_padded = cv2.copyMakeBorder(img, pad, pad, pad, pad, cv2.BORDER_REPLICATE)
-    output_image = np.zeros((ih, iw, 3), dtype='uint8')
+def convolution(img, kernel, average=False):
+    kh, kw = kernel.shape
+    ih, iw = img.shape
 
-    for y in range(pad, ih + pad):
-        for x in range(pad, iw + pad):
-            roi = img_padded[y - pad: y + pad + 1, x - pad: x + pad + 1]
-            k = np.sum(roi * kernel, axis=(0, 1))
-            output_image[y - pad, x - pad] = k
-            
-    return output_image
+    pad: int = kh // 2
+    paddedImage = np.zeros((ih + pad*2, iw + pad*2))
+    outputImage = np.zeros(img.shape)
+
+    # dimensions of padded image
+    x, y = paddedImage.shape
+    paddedImage[pad:x - pad, pad:y - pad] = img
+
+    averageDiv = kw * kh
+    for i in range(ih):
+        for j in range(iw):
+            outputImage[i][j] = np.sum(kernel*paddedImage[i:i+kh, j:j+kw])
+            if average:
+                outputImage[i][j] /= averageDiv
+
+    return outputImage
 
 img = cv2.imread('Images/Huzaifa.png')
 kernel = np.ones((3, 3), np.float32) / 9
@@ -47,6 +52,9 @@ f, plots = plt.subplots(1, 2)
 plots[0].imshow(img, cmap='gray')
 plots[1].imshow(blurred_img, cmap='gray')
 plt.show()
+
+
+
 ```
 
 ## Explanation

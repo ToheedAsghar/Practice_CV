@@ -3,7 +3,6 @@
 ![image](https://github.com/ToheedAsghar/Practice_CV/assets/121859513/04ae9f4d-1dd5-42a5-af57-880818b50eda)
 
 
-
 ```python
 import cv2 as cv
 import numpy as np
@@ -38,3 +37,7 @@ In this code:
 - We define the center of rotation as the center of the rectangle.
 - We iterate over all pixels in the rectangle, translate them to the center of rotation, apply the rotation, and copy the pixel value to the rotated position.
 - Finally, we display the rotated image using cv.imshow().
+
+## Output
+
+![image](https://github.com/ToheedAsghar/Practice_CV/assets/121859513/082e8f5a-9e49-47ed-9d1c-f3366ae800d5)

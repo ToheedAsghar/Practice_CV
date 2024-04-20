@@ -31,9 +31,7 @@ cv.destroyAllWindows()
 '''
 cv2.split() is a time consuming operation. consider using NumPy indexing:
 '''
-b = img_opencv[:, :, 0]
-g = img_opencv[:, :, 1]
-r = img_opencv[:, :, 2]
+
 img_matplotlib = img_opencv[:, :, ::-1]
 
 

@@ -4,22 +4,11 @@
 
 ```python
 
-#python 3.7.4,opencv4.1
-#  https://blog.csdn.net/caimouse/article/details/51749579
-#
 import cv2
 import numpy as np
 from scipy import signal
  
 def edgesMarrHildreth(img, sigma):
- 
-    """
-            finds the edges using MarrHildreth edge detection method...
-            :param im : input image
-            :param sigma : sigma is the std-deviation and refers to the spread of gaussian
-            :return:
-            a binary edge image...
-    """
  
     size = int(2*(np.ceil(3*sigma))+1)
  
@@ -63,9 +52,6 @@ def edgesMarrHildreth(img, sigma):
                     zero_crossing[i][j] = 255
  
     return zero_crossing
- 
- #Picture path
-imgname = "edge1.png"
  
  #Read picture
 image = cv2.imread('huzaifa.png', 0)

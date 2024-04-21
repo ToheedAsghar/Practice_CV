@@ -1,22 +1,38 @@
-import cv2 as cv, import numpy as np
+import cv2 as cv
+import numpy as np
+import matplotlib.pyplot as plt
 
-def convolution(img, kernel, average=False):
-    kh, kw = kernel.shape
-    ih, iw = img.shape
+def convolve(img, kernel):
 
-    pad: int = kh // 2
-    paddedImage = np.zeros((ih + pad*2, iw + pad*2))
-    outputImage = np.zeros(img.shape)
+    kernel = np.flipud(np.fliplr(kernel))
+    
+    kx, ky = kernel.shape
+    ix, iy = img.shape[:2]
 
-    # dimensions of padded image
-    x, y = paddedImage.shape
-    paddedImage[pad:x - pad, pad:y - pad] = img
+    pad = kx // 2
 
-    averageDiv = kw * kh
-    for i in range(ih):
-        for j in range(iw):
-            outputImage[i][j] = np.sum(kernel*paddedImage[i:i+kh, j:j+kw])
-            if average:
-                outputImage[i][j] /= averageDiv
+    # img = cv.copyMakeBorder(img, pad, pad, pad, pad, cv.BORDER_CONSTANT)
 
-    return outputImage
+    # defining a buffer for padded image
+    pImage = np.zeros((ix + pad*2, iy + pad*2))
+
+    # copying the img to the coresponding portion in the padded Image
+    pImage[pad:pad+ix, pad:pad+iy] = np.copy(img)
+
+    # defining bufer for output image
+    out = np.copy(img)
+
+    for i in range(pad, ix):
+        for j in range(pad, iy):
+            roi = pImage[i - pad:i+pad+1, j-pad:j+pad+1]
+            out[i][j] = (kernel*roi).sum()
+
+    return out
+
+
+img = cv.imread('huzaifa.png', 0)
+kernal = np.array([[-2, -1, 0], [-1, 1, 1], [0, 1, 2]])
+img = convolve(img, kernal)
+
+plt.imshow(img, cmap='gray')
+plt.show()

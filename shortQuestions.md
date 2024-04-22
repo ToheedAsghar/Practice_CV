@@ -22,7 +22,7 @@ Answer: Image denoising involves removing noise from an image while preserving i
 This is critical in various applications such as medical imaging, where noise reduction enhances the clarity of diagnostic images.
 Denoising algorithms, like the Non-Local Means algorithm, are commonly used for this purpose.
 
-**@hat is the purpose of the Harris Corner Detector in feature extraction?**
+**What is the purpose of the Harris Corner Detector in feature extraction?**
 
 Answer: The Harris Corner Detector identifies key points (corners) in an image based on variations in intensity.
 These corners serve as distinctive features for image matching and object recognition.
